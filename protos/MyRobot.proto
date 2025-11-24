@@ -1,0 +1,57 @@
+#VRML_SIM R2025b utf8
+
+PROTO MyRobot [
+  field SFVec3f    translation    0 0 0
+  field SFRotation rotation       0 1 0 0
+] {
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    name "MyRobot"
+    controller "myrobot_controller"
+    basicTimeStep 32
+    children [
+      Wheel {
+        name "left_wheel"
+        radius 0.05
+        motor Torque 1.0
+        translation -0.1 0.05 0.1
+      }
+      Wheel {
+        name "right_wheel"
+        radius 0.05
+        motor Torque 1.0
+        translation 0.1 0.05 0.1
+      }
+      Wheel {
+        name "left_back_wheel"
+        radius 0.05
+        motor Torque 1.0
+        translation -0.1 0.05 -0.1
+      }
+      Wheel {
+        name "right_back_wheel"
+        radius 0.05
+        motor Torque 1.0
+        translation 0.1 0.05 -0.1
+      }
+      DistanceSensor {
+        name "ds_front"
+        translation 0 0.05 0.15
+        rotation 0 1 0 0
+        range 1.0
+        fieldOfView 0.5
+        lookupTable [0 1 1000 0]
+      }
+      Camera {
+        name "camera"
+        translation 0 0.15 0
+        rotation 0 1 0 0
+        width 320
+        height 240
+        fieldOfView 1.0
+        recognition TRUE
+      }
+    ]
+  }
+}

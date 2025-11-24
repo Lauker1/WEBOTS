@@ -1,0 +1,5 @@
+name: MyRobotProject
+type: project
+version: "1.0"
+description: Proyecto Webots de robot autónomo
+webots_version: "R2025b"
